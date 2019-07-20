@@ -196,11 +196,211 @@ with open('myfile.txt', mode="r") as f:
 ```
 写文件
 ```
-with open('myfile.txt', mode="a") as f:
+    with open('myfile.txt', mode="a") as f:
     f.write('FOUR ON FOURTH')
 ```
 创建新文件
 ```
 with open('dsfergg.txt', mode="r") as f:
     print(f.read())
+```
+
+# for in
+- 遍历，拿到的事值, js 拿到的是索引
+```
+mylist = [(1,3), (4,5), (6,7)]
+for item in mylist:
+    print(item)
+
+for a, b in mylist:
+    print(b)
+
+```
+- Dictionaries
+返回的是你放进去的顺序
+```
+拿到 key
+d = {'a': 1, 'b': 2, 'c': 3}
+for item in d:
+    print(item) # a b c
+
+拿到 values
+for item in d.values():
+    print(item) # 1 2 3
+
+拿到 key - value
+for item in d.items():
+    print(item)
+    # ('a', 1) ('b', 2) ('c', 3)
+```
+
+# while loops
+- syntax
+```
+while some_boolean_condition:
+    # do sth
+else:
+    # do sth else
+```
+- 例子
+```
+x = 0
+while x < 5:
+    print(f'The current value of x is { x }')
+    x += 1 # x = x + 1
+else:
+    print('X is not less than 5')
+```
+
+- break, continue, pass
+```
+x = [1, 2, 3]
+for item in x:
+    pass
+print('end of my script')
+```
+跳过 a Smmy
+```
+mystring = 'Sammy'
+for letter in mystring:
+    if letter == 'a': # 跳过 a
+        continue
+    print(letter)
+```
+到 a 为止 S
+```
+mystring = 'Sammy'
+for letter in mystring:
+    if letter == 'a': # 跳过 a
+        break
+    print(letter)
+```
+0 1
+```
+x = 0
+while x < 5:
+    if x == 2:
+        break
+    print(x)
+    x += 1
+```
+
+# useful Operators
+
+- range(start, end, stepSize)
+```
+# 1 - 10
+for num in range(10):
+    print(num)
+
+# 3 - 10
+for num in range(3, 10):
+    print(num)
+
+# 跳两步 0 2 4 6 8
+for num in range(0, 10, 2):
+    print(num)
+```
+
+```
+list(range(0, 11, 2)) 生成list [0, 2, 4, 6, 8, 10]
+```
+
+- enumerate
+输出 index 和 value
+```
+index_count = 0
+for letter in 'abcde':
+    print('At index {} the letter is {}'.format(index_count, letter))
+    index_count += 1
+
+At index 0 the letter is a
+At index 1 the letter is b
+At index 2 the letter is c
+At index 3 the letter is d
+At index 4 the letter is e
+```
+
+```
+word = 'abced'
+for item in enumerate(word):
+    print(item)
+
+(0, 'a')
+(1, 'b')
+(2, 'c')
+(3, 'e')
+(4, 'd')
+```
+
+```
+word = 'abced'
+for index, letter in enumerate(word):
+    print(index)
+    print(letter)
+    print('\n')
+```
+
+- zip 打包在一起
+把多个list打包在一起并且配对, 返回的是tuple
+```
+mylist1 = [1, 2, 3]
+mylist2 = ['a', 'b', 'c']
+# zip(mylist1, mylist2)
+for item in zip(mylist1, mylist2):
+    print(item)
+
+(1, 'a')
+(2, 'b')
+(3, 'c')
+```
+打包成list
+```
+list(zip(mylist1, mylist2))
+# [(1, 'a'), (3, 'b'), (4, 'c')]
+```
+# 判断元素在不在list 或 Dictionaries 中
+```
+'a' in [1,2,3] # False
+
+'mykey' in {'mykey': 123} # True
+
+d = {'mykey': 123}
+'mykey' in d.keys() // True
+
+```
+
+# 取最大最小值
+```
+mylist = [10,20,30,40,100]
+min(mylist)
+max(mylist)
+```
+# 引入python内置的一些东西
+- 洗牌 打乱顺序
+```
+from random import shuffle
+
+mylist = [1,2,3,4,5,6,7,8]
+shuffle(mylist) # 顺序会被打乱 在原数组操作
+```
+- 在给定范围内选出随机数
+```
+from random import randint
+randint(0, 100) # return 一个东西
+mynum = randint(0, 100)
+mynum # 99
+```
+# 输入框
+```
+name = input('Enter your name here:')
+name
+```
+# float 浮点数
+```
+float(20)
+```
+# int 整数
+```
+int(20)
 ```
